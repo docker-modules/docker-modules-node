@@ -18,3 +18,6 @@ RUN apt-get clean && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
 # Install puppeteer so it's available in the container.
 RUN yarn global add puppeteer && yarn cache clean
+
+# add yarn node_modules to NODE_PATH
+ENV NODE_PATH="/usr/local/share/.config/yarn/global/node_modules:${NODE_PATH}"
